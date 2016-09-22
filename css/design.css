@@ -47,14 +47,85 @@ div {
 }
 
 @keyframes zoom {
-	form {
-		transform: scale3d(1);
+	from 	{ transform: scale(1); }
+	to 		{ transform: scale(3); }
+}
+
+@keyframes fondu {
+	from 	{ opacity: 1; }
+	to 		{ opacity: 0; }
+}
+
+@keyframes colorier {
+	from 	{ background-color: #c33; }
+	99% 	{ background-color: #000; }
+	to 		{ background-color: #33c; }
+}
+
+@keyframes move {
+	from 	{ margin-left: 0; }
+	to 		{ margin-left: 200px; }
+}
+
+
+#div1:hover {
+	animation-name: zoom;
+	animation-duration: 1s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+}
+
+#div2:hover {
+	animation-name: colorier ;
+	animation-fill-mode: forwards;
+	animation-duration: 1s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+}
+
+#div3:active {
+	animation-name: move;
+	animation-fill-mode: forwards;
+	animation-duration: 2s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+}
+
+#div4 p:hover {
+	animation-name: fondu;
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	text-align: right;
+}
+
+#fdp {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+@keyframe FDP {
+	0% {
+		top: 0;
+		background-color: #fff;
+		transform: scale3d(0,0,0);
 	}
-	to {
-		transform: scale3d(3);
+	100% {
+		top: 100%;
+		background-color: #000;
+		transform: scale3d(50,10,20);  
 	}
 }
 
-#div1:hover {
-	animation: zoom;
+#div4:active {
+	animation-name: fondu;
+	animation-direction: 3s;
+	animation-timing-function: ease;
+}
+
+#fdp:checked {
+	animation-name: FDP;
+	animation-direction: 3s;
+	animation-timing-function: ease;
 }
